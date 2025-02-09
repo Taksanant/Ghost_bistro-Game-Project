@@ -73,7 +73,8 @@ To play **Ghost Bistro**, follow these simple steps:
 
 You can download or watch the gameplay video here:
 
-[Download Gameplay Video]([https://github.com/yourusername/GameBistro_using_GODOT/blob/main/gameplay.mp4](https://github.com/Taksanant/Ghost_bistro-Game-Project/blob/main/GameVideo/GhostBistro%20(DEBUG)%202566-09-27%2013-22-28.mp4))
+[Download Gameplay Video](https://github.com/Taksanant/Ghost_bistro-Game-Project/raw/main/GameVideo/GhostBistro%20(DEBUG)%202566-09-27%2013-22-28.mp4)
+
 
 
 
