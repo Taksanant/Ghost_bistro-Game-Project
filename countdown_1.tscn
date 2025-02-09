@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://df02oskw6i8jn"]
+
+[ext_resource type="Script" path="res://Countdown1.gd" id="1_vnwev"]
+[ext_resource type="FontFile" uid="uid://ccmum1cr1tgd2" path="res://font/PressStart2P.ttf" id="2_u6ken"]
+
+[node name="Countdown1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vnwev")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 896.0
+offset_top = 20.0
+offset_right = 1152.0
+offset_bottom = 84.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_u6ken")
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

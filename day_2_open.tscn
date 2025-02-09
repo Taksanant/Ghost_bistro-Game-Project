@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8l0lmukkvodx"]
+
+[ext_resource type="Texture2D" uid="uid://b6ijsaq60vf8h" path="res://Scene asset/background.jpg" id="1_648a7"]
+[ext_resource type="Script" path="res://day_2_open.gd" id="1_dd1uw"]
+[ext_resource type="Texture2D" uid="uid://cm6p8jp13hdmy" path="res://Scene asset/ไม่มีชื่อ (1152 x 648 px).png" id="2_j1gyx"]
+[ext_resource type="FontFile" uid="uid://ccmum1cr1tgd2" path="res://font/PressStart2P.ttf" id="3_l6a0f"]
+
+[node name="day2open" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dd1uw")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(645, 339)
+texture = ExtResource("1_648a7")
+
+[node name="Day2" type="Sprite2D" parent="."]
+position = Vector2(570, 320)
+texture = ExtResource("2_j1gyx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -78.0
+offset_right = 94.5
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_l6a0f")
+theme_override_font_sizes/font_size = 20
+text = "DAY 2
+GOAL : 80 COINS
+TIME : 2 mins 00 secs
+
+
+PRESS [ENTER] TO START"
+horizontal_alignment = 1
+vertical_alignment = 1

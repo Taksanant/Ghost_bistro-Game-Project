@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://myraxhxsofj3"]
+
+[ext_resource type="Script" path="res://servezone.gd" id="1_o8fxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv2s2"]
+size = Vector2(256, 80)
+
+[node name="servezone" type="Area2D"]
+script = ExtResource("1_o8fxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(160, 40)
+shape = SubResource("RectangleShape2D_tv2s2")
+
+[node name="serving_timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="serving_timer" to="." method="_on_serving_timer_timeout"]

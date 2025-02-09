@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://detmvhml8c63v"]
+
+[ext_resource type="Script" path="res://Countdown2.gd" id="1_g5sa3"]
+[ext_resource type="FontFile" uid="uid://ccmum1cr1tgd2" path="res://font/PressStart2P.ttf" id="2_6tuh2"]
+
+[node name="Countdown2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5sa3")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 896.0
+offset_top = 20.0
+offset_right = 1152.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("2_6tuh2")
+theme_override_font_sizes/font_size = 20
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

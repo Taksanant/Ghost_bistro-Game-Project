@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqvvdku3p7fk8"]
+
+[ext_resource type="Script" path="res://s_18.gd" id="1_asxgh"]
+[ext_resource type="Texture2D" uid="uid://ckwkqpdfuecm7" path="res://story/18.jpg" id="2_7dgd6"]
+[ext_resource type="FontFile" uid="uid://ccmum1cr1tgd2" path="res://font/PressStart2P.ttf" id="3_ym4hv"]
+
+[node name="s18" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_asxgh")
+
+[node name="18" type="Sprite2D" parent="."]
+position = Vector2(575, 325)
+texture = ExtResource("2_7dgd6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 608.0
+offset_right = 1138.0
+offset_bottom = 631.0
+theme_override_fonts/font = ExtResource("3_ym4hv")
+theme_override_font_sizes/font_size = 10
+text = "PRESS [TAP] TO SKIP"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

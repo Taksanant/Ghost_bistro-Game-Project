@@ -1,0 +1,141 @@
+[gd_scene load_steps=21 format=3 uid="uid://fsx6o06jd0b4"]
+
+[ext_resource type="Script" path="res://main2.gd" id="1_bk0l0"]
+[ext_resource type="Texture2D" uid="uid://b6ijsaq60vf8h" path="res://Scene asset/background.jpg" id="2_g1cq7"]
+[ext_resource type="PackedScene" uid="uid://civpyufwr8r1h" path="res://pot.tscn" id="3_gkrmr"]
+[ext_resource type="PackedScene" uid="uid://di0tlmyg1ok6" path="res://wine_maker.tscn" id="4_rbwcg"]
+[ext_resource type="PackedScene" uid="uid://d2ygkjaw1ym7d" path="res://sink.tscn" id="5_7nbun"]
+[ext_resource type="Texture2D" uid="uid://doo8hrf0gxvks" path="res://Scene asset/broom.png" id="6_4q3t4"]
+[ext_resource type="Script" path="res://Broom.gd" id="7_nfguh"]
+[ext_resource type="Texture2D" uid="uid://dalppgtvvhsyw" path="res://Scene asset/fugthong.png" id="8_t7nyn"]
+[ext_resource type="Script" path="res://Fugthong.gd" id="9_i2v3l"]
+[ext_resource type="Texture2D" uid="uid://b3i8fdkr7osb8" path="res://Scene asset/batman.png" id="10_84yro"]
+[ext_resource type="Script" path="res://Batman.gd" id="11_bffwm"]
+[ext_resource type="PackedScene" uid="uid://myraxhxsofj3" path="res://servezone.tscn" id="12_h0006"]
+[ext_resource type="PackedScene" uid="uid://mjwng5ihu2qf" path="res://Player.tscn" id="13_s8ehh"]
+[ext_resource type="Texture2D" uid="uid://be1o0xc5wd4kd" path="res://Scene asset/coin.png" id="14_s5c6f"]
+[ext_resource type="FontFile" uid="uid://ccmum1cr1tgd2" path="res://font/PressStart2P.ttf" id="15_ob057"]
+[ext_resource type="PackedScene" uid="uid://cdufpc1emsitf" path="res://oven.tscn" id="17_npotc"]
+[ext_resource type="PackedScene" uid="uid://detmvhml8c63v" path="res://countdown_2.tscn" id="17_way2s"]
+[ext_resource type="AudioStream" uid="uid://ckjagamdhmbop" path="res://Sound/bg_music.mp3" id="18_64pb0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh81v"]
+atlas = ExtResource("14_s5c6f")
+region = Rect2(0, 0, 1401, 1601)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12wun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh81v")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}]
+
+[node name="Main2" type="Node2D"]
+script = ExtResource("1_bk0l0")
+
+[node name="chair1" type="Node2D" parent="."]
+position = Vector2(510, 200)
+
+[node name="chair2" type="Node2D" parent="."]
+position = Vector2(510, 390)
+
+[node name="chair3" type="Node2D" parent="."]
+position = Vector2(510, 550)
+
+[node name="entry1" type="Node2D" parent="."]
+position = Vector2(1328, 200)
+
+[node name="entry2" type="Node2D" parent="."]
+position = Vector2(1328, 390)
+
+[node name="entry3" type="Node2D" parent="."]
+position = Vector2(1328, 550)
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(645, 339)
+texture = ExtResource("2_g1cq7")
+
+[node name="Pot" parent="." instance=ExtResource("3_gkrmr")]
+position = Vector2(-5, 152)
+
+[node name="WineMaker" parent="." instance=ExtResource("4_rbwcg")]
+position = Vector2(-16, 288)
+
+[node name="Oven" parent="." instance=ExtResource("17_npotc")]
+position = Vector2(40, -16)
+
+[node name="sink" parent="." instance=ExtResource("5_7nbun")]
+position = Vector2(56, 512)
+
+[node name="Broom" type="Sprite2D" parent="."]
+position = Vector2(976, 72)
+scale = Vector2(0.643713, 0.672973)
+texture = ExtResource("6_4q3t4")
+hframes = 3
+script = ExtResource("7_nfguh")
+
+[node name="Fugthong" type="Sprite2D" parent="."]
+position = Vector2(416, 144)
+scale = Vector2(0.415966, 0.458974)
+texture = ExtResource("8_t7nyn")
+hframes = 3
+script = ExtResource("9_i2v3l")
+
+[node name="Batman" type="Sprite2D" parent="."]
+position = Vector2(720, 512)
+scale = Vector2(0.466597, 0.544944)
+texture = ExtResource("10_84yro")
+hframes = 3
+script = ExtResource("11_bffwm")
+
+[node name="servezone" parent="." instance=ExtResource("12_h0006")]
+position = Vector2(312, 360)
+
+[node name="servezone2" parent="." instance=ExtResource("12_h0006")]
+position = Vector2(312, 528)
+
+[node name="servezone3" parent="." instance=ExtResource("12_h0006")]
+position = Vector2(304, 189)
+
+[node name="player" parent="." instance=ExtResource("13_s8ehh")]
+position = Vector2(253, 600)
+
+[node name="coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(103.438, 39.4375)
+scale = Vector2(0.0350642, 0.0306839)
+sprite_frames = SubResource("SpriteFrames_12wun")
+animation = &"coin"
+
+[node name="cointext" type="RichTextLabel" parent="."]
+offset_left = 136.0
+offset_top = 24.0
+offset_right = 312.0
+offset_bottom = 78.0
+theme_override_fonts/normal_font = ExtResource("15_ob057")
+theme_override_font_sizes/normal_font_size = 39
+text = "0"
+fit_content = true
+
+[node name="Countdown2" parent="." instance=ExtResource("17_way2s")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = 1064.0
+offset_top = 40.0
+offset_right = 1064.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Bg_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_64pb0")
+
+[connection signal="pot_picked_up" from="Pot" to="player" method="_on_pot_picked_up"]
+[connection signal="area_entered" from="WineMaker" to="player" method="_on_wine_maker_area_entered"]
+[connection signal="wine_picked_up" from="WineMaker" to="player" method="_on_wine_picked_up"]
+[connection signal="pie_picked_up" from="Oven" to="player" method="_on_pie_picked_up"]
+[connection signal="food_throw" from="sink" to="player" method="_on_food_throw"]

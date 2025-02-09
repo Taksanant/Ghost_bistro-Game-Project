@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://ch1yaujogq6xr"]
+
+[ext_resource type="Script" path="res://Open_Scene.gd" id="1_v3sbh"]
+[ext_resource type="Texture2D" uid="uid://di6j1i7kq7ngx" path="res://Scene asset/open scene.png" id="2_w3pqh"]
+[ext_resource type="Texture2D" uid="uid://blwb02q76g7gj" path="res://Ghost/walkForward.png" id="3_gce10"]
+
+[sub_resource type="Theme" id="Theme_uvs84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hnugm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlesg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6o10l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub26h"]
+atlas = ExtResource("3_gce10")
+region = Rect2(0, 0, 176, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umd75"]
+atlas = ExtResource("3_gce10")
+region = Rect2(176, 0, 176, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixiyh"]
+atlas = ExtResource("3_gce10")
+region = Rect2(352, 0, 176, 258)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i17bm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub26h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umd75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixiyh")
+}],
+"loop": true,
+"name": &"yongx2",
+"speed": 5.0
+}]
+
+[node name="Open_Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3sbh")
+
+[node name="OpenScene" type="Sprite2D" parent="."]
+position = Vector2(570, 320)
+texture = ExtResource("2_w3pqh")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 420.0
+offset_right = 1039.0
+offset_bottom = 517.0
+theme = SubResource("Theme_uvs84")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hnugm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wlesg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6o10l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(313, 521)
+sprite_frames = SubResource("SpriteFrames_i17bm")
+animation = &"yongx2"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

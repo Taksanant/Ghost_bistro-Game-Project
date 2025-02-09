@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbravff70b8s4"]
+
+[ext_resource type="Texture2D" uid="uid://couishfrllbon" path="res://Customer/walkLeft.png" id="1_sgdnq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fgm0t"]
+radius = 28.0
+height = 74.0
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sgdnq")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fgm0t")

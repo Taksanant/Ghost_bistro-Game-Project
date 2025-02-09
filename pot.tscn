@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://civpyufwr8r1h"]
+
+[ext_resource type="Script" path="res://Pot.gd" id="1_d3ua7"]
+[ext_resource type="Texture2D" uid="uid://d3dhf22ghhxs0" path="res://Scene asset/pot-removebg-preview.png" id="2_4pc6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eplna"]
+size = Vector2(158, 105.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdnq0"]
+atlas = ExtResource("2_4pc6v")
+region = Rect2(0, 0, 126, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilwnl"]
+atlas = ExtResource("2_4pc6v")
+region = Rect2(126, 0, 126, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5byi"]
+atlas = ExtResource("2_4pc6v")
+region = Rect2(252, 0, 126, 286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5xk3"]
+atlas = ExtResource("2_4pc6v")
+region = Rect2(378, 0, 126, 286)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2voo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdnq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilwnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5byi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5xk3")
+}],
+"loop": true,
+"name": &"Boil",
+"speed": 5.0
+}]
+
+[node name="Pot" type="Area2D"]
+script = ExtResource("1_d3ua7")
+
+[node name="clickArea" type="CollisionShape2D" parent="."]
+position = Vector2(134, 74.75)
+shape = SubResource("RectangleShape2D_eplna")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(125, 28)
+sprite_frames = SubResource("SpriteFrames_x2voo")
+animation = &"Boil"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

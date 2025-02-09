@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cps505pf4m2o3"]
+
+[ext_resource type="Script" path="res://BrainSoup.gd" id="1_tff5j"]
+[ext_resource type="Texture2D" uid="uid://ccqkuisyxg444" path="res://food/brainSoup.png" id="2_3h6w5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em4l1"]
+size = Vector2(48, 24)
+
+[node name="BrainSoup" type="Node2D"]
+script = ExtResource("1_tff5j")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-112, -24)
+
+[node name="BrainSoup" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(112, 32)
+texture = ExtResource("2_3h6w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(112, 28)
+shape = SubResource("RectangleShape2D_em4l1")

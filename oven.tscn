@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdufpc1emsitf"]
+
+[ext_resource type="Texture2D" uid="uid://jb7kvcg3klyl" path="res://Scene asset/เตาอบ.png" id="1_5o0lp"]
+[ext_resource type="Script" path="res://oven.gd" id="1_b0b2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcvfy"]
+size = Vector2(72, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32wok"]
+atlas = ExtResource("1_5o0lp")
+region = Rect2(2, 0, 50, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oox8c"]
+atlas = ExtResource("1_5o0lp")
+region = Rect2(52, 0, 50, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyxf0"]
+atlas = ExtResource("1_5o0lp")
+region = Rect2(102, 0, 50, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njju1"]
+atlas = ExtResource("1_5o0lp")
+region = Rect2(152, 0, 50, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jxac"]
+atlas = ExtResource("1_5o0lp")
+region = Rect2(202, 0, 50, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7tt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32wok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oox8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyxf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njju1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jxac")
+}],
+"loop": true,
+"name": &"bake",
+"speed": 5.0
+}]
+
+[node name="Oven" type="Area2D"]
+script = ExtResource("1_b0b2b")
+
+[node name="clickArea" type="CollisionShape2D" parent="."]
+position = Vector2(116, 116)
+shape = SubResource("RectangleShape2D_xcvfy")
+
+[node name="oven" type="AnimatedSprite2D" parent="."]
+position = Vector2(115.5, 99)
+scale = Vector2(1.46, 1.40909)
+sprite_frames = SubResource("SpriteFrames_d7tt6")
+animation = &"bake"
+frame = 1
+frame_progress = 0.0900782
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
